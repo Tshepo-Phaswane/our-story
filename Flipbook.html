@@ -7,7 +7,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="flipbook-container" id="flipbook-container">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text">Loading Our Memories...</p>
+            <p class="loading-progress" id="loading-progress">0%</p>
+        </div>
+    </div>
+
+    <div class="flipbook-container" id="flipbook-container" style="display: none;">
         <div class="left-side">
             <div class="vinyl-player">
                 <div class="spinner" id="vinyl-spinner">
@@ -79,11 +88,11 @@
         <div class="right-side">
             <div class="memory-card">
                 <div class="card-header">
-
+                    <h2>Our Love in Lyrics</h2>
                 </div>
 
                 <div class="photo-frame">
-                    <img id="carousel-image" src="img/img1.jpeg" alt="Our Memory" loading="eager" decoding="async">
+                    <img id="carousel-image" src="img/img1.jpeg" alt="Our Memory">
                 </div>
 
                 <div class="caption-container">
@@ -107,6 +116,7 @@
         </div>
     </div>
 
+    <!-- Audio Element (removed loop attribute) -->
     <audio id="background-music">
         <source src="music/song.mp3" type="audio/mpeg">
     </audio>

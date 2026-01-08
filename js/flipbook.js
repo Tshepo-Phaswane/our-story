@@ -136,12 +136,16 @@ const memories = [
 let currentIndex = 0;
 let typingInterval;
 let isTyping = false;
+let imagesPreloaded = false;
+const preloadedImages = {};
 
 const imageElement = document.getElementById('carousel-image');
 const textElement = document.getElementById('typing-text');
 const nextBtn = document.getElementById('next-btn');
 const flipbookContainer = document.getElementById('flipbook-container');
 const finalSection = document.getElementById('final-section');
+const loadingScreen = document.getElementById('loading-screen');
+const loadingProgress = document.getElementById('loading-progress');
 
 // Music player elements
 const audio = document.getElementById('background-music');
@@ -157,6 +161,51 @@ const timeTotal = document.getElementById('time-total');
 const progressBarWrapper = document.querySelector('.progress-bar-wrapper');
 
 let isPlaying = false;
+
+// Preload all images
+function preloadImages() {
+    return new Promise((resolve) => {
+        let loadedCount = 0;
+        const totalImages = memories.length;
+
+        memories.forEach((memory, index) => {
+            const img = new Image();
+            img.onload = () => {
+                preloadedImages[memory.image] = img;
+                loadedCount++;
+                
+                // Update progress
+                const progress = Math.round((loadedCount / totalImages) * 100);
+                if (loadingProgress) {
+                    loadingProgress.textContent = `${progress}%`;
+                }
+                
+                console.log(`Loaded ${loadedCount}/${totalImages} images (${progress}%)`);
+                
+                if (loadedCount === totalImages) {
+                    imagesPreloaded = true;
+                    resolve();
+                }
+            };
+            img.onerror = () => {
+                console.error(`Failed to load image: ${memory.image}`);
+                loadedCount++;
+                
+                // Update progress even on error
+                const progress = Math.round((loadedCount / totalImages) * 100);
+                if (loadingProgress) {
+                    loadingProgress.textContent = `${progress}%`;
+                }
+                
+                if (loadedCount === totalImages) {
+                    imagesPreloaded = true;
+                    resolve();
+                }
+            };
+            img.src = memory.image;
+        });
+    });
+}
 
 function typeText(text, callback) {
     if (isTyping) return;
@@ -177,7 +226,7 @@ function typeText(text, callback) {
             isTyping = false;
             if (callback) callback();
         }
-    }, 50);
+    }, 55);
 }
 
 function changeMemory() {
@@ -192,13 +241,26 @@ function changeMemory() {
 
     currentIndex = (currentIndex + 1) % memories.length;
 
+    // Fade out current image
     imageElement.style.opacity = '0';
 
+    // Wait 1.2 seconds for fade out and image loading
     setTimeout(() => {
-        imageElement.src = memories[currentIndex].image;
+        // Change image source
+        if (preloadedImages[memories[currentIndex].image]) {
+            imageElement.src = preloadedImages[memories[currentIndex].image].src;
+        } else {
+            imageElement.src = memories[currentIndex].image;
+        }
+        
+        // Fade in new image
         imageElement.style.opacity = '1';
-        typeText(memories[currentIndex].caption);
-    }, 500);
+        
+        // Start typing caption after image starts fading in
+        setTimeout(() => {
+            typeText(memories[currentIndex].caption);
+        }, 300);
+    }, 1200);
 }
 
 function showFinalMessage() {
@@ -302,17 +364,8 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-function preloadImages() {
-    memories.forEach(memory => {
-        const img = new Image();
-        img.src = memory.image;
-    });
-}
-
 // Initialize on page load
-window.addEventListener('load', () => {
-
-    preloadImages(); 
+window.addEventListener('load', async () => {
     // Reset everything on page load
     currentIndex = 0;
     isTyping = false;
@@ -321,13 +374,35 @@ window.addEventListener('load', () => {
     // Reset UI elements
     flipbookContainer.classList.remove('fade-out');
     finalSection.classList.remove('visible');
-    imageElement.src = memories[0].image;
-    imageElement.style.opacity = '1';
     
-    // Start typing first caption
+    // Show loading screen
+    console.log('Preloading images...');
+    
+    // Preload all images before starting
+    await preloadImages();
+    console.log('All images preloaded!');
+    
+    // Hide loading screen and show flipbook
     setTimeout(() => {
-        typeText(memories[0].caption);
-    }, 500);
+        loadingScreen.classList.add('hidden');
+        flipbookContainer.style.display = 'flex';
+        
+        // Set first image from preloaded cache and ensure it's visible
+        if (preloadedImages[memories[0].image]) {
+            imageElement.src = preloadedImages[memories[0].image].src;
+        } else {
+            imageElement.src = memories[0].image;
+        }
+        
+        // Force image to be visible
+        imageElement.style.opacity = '1';
+        imageElement.style.display = 'block';
+        
+        // Start typing first caption after a short delay to ensure image is rendered
+        setTimeout(() => {
+            typeText(memories[0].caption);
+        }, 600);
+    }, 300);
     
     // Initialize time displays
     timeCurrent.textContent = '0:00';
