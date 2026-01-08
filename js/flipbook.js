@@ -302,8 +302,17 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
+function preloadImages() {
+    memories.forEach(memory => {
+        const img = new Image();
+        img.src = memory.image;
+    });
+}
+
 // Initialize on page load
 window.addEventListener('load', () => {
+
+    preloadImages(); 
     // Reset everything on page load
     currentIndex = 0;
     isTyping = false;
