@@ -1,134 +1,134 @@
 const memories = [
     {
-        image: 'img/img1.jpeg',
+        image: 'img/img1.jpg',
         caption: 'One year ago, our story began... and what a beautiful story it has been.'
     },
     {
-        image: 'img/img2.jpeg',
+        image: 'img/img2.jpg',
         caption: 'From the moment I met you, I knew my life would never be the same.'
     },
     {
-        image: 'img/img3.jpeg',
+        image: 'img/img3.jpg',
         caption: 'Your laugh became my favorite sound, your smile my favorite sight.'
     },
     {
-        image: 'img/img4.jpeg',
+        image: 'img/img4.jpg',
         caption: 'Every day with you feels like coming home.'
     },
     {
-        image: 'img/img5.jpeg',
+        image: 'img/img5.jpg',
         caption: 'You turned ordinary moments into extraordinary memories.'
     },
     {
-        image: 'img/img6.jpeg',
+        image: 'img/img6.jpg',
         caption: 'In your eyes, I found a love I never knew existed.'
     },
     {
-        image: 'img/img7.jpeg',
+        image: 'img/img7.jpg',
         caption: 'You make even the quiet moments feel magical.'
     },
     {
-        image: 'img/img8.jpeg',
+        image: 'img/img8.jpg',
         caption: 'With you, I discovered what it means to truly be understood.'
     },
     {
-        image: 'img/img9.jpeg',
+        image: 'img/img9.jpg',
         caption: 'Your hand in mine feels like the most natural thing in the world.'
     },
     {
-        image: 'img/img10.jpeg',
+        image: 'img/img10.jpg',
         caption: 'You taught me that love is found in the little things we do every day.'
     },
     {
-        image: 'img/img11.jpeg',
+        image: 'img/img11.jpg',
         caption: 'Our late-night conversations are my favorite adventures.'
     },
     {
-        image: 'img/img12.jpeg',
+        image: 'img/img12.jpg',
         caption: 'You turned my dreams into plans and my plans into beautiful reality.'
     },
     {
-        image: 'img/img13.jpeg',
+        image: 'img/img13.jpg',
         caption: 'In a world full of chaos, you are my peace.'
     },
     {
-        image: 'img/img14.jpeg',
+        image: 'img/img14.jpg',
         caption: 'Every song reminds me of you, every sunset makes me think of us.'
     },
     {
-        image: 'img/img15.jpeg',
+        image: 'img/img15.jpg',
         caption: 'You showed me that home isn\'t a place, it\'s a person.'
     },
     {
-        image: 'img/img16.jpeg',
+        image: 'img/img16.jpg',
         caption: 'Your love gave me courage I never knew I had.'
     },
     {
-        image: 'img/img17.jpeg',
+        image: 'img/img17.jpg',
         caption: 'With you, even rainy days feel like sunshine.'
     },
     {
-        image: 'img/img18.jpeg',
+        image: 'img/img18.jpg',
         caption: 'You are my favorite hello and my hardest goodbye.'
     },
     {
-        image: 'img/img19.jpeg',
+        image: 'img/img19.jpg',
         caption: 'In this year together, you\'ve become my best friend and my greatest love.'
     },
     {
-        image: 'img/img20.jpeg',
+        image: 'img/img20.jpg',
         caption: 'Your embrace is where I find my strength and my comfort.'
     },
     {
-        image: 'img/img21.jpeg',
+        image: 'img/img21.jpg',
         caption: 'You make me want to be better, to dream bigger, to love deeper.'
     },
     {
-        image: 'img/img22.jpeg',
+        image: 'img/img22.jpg',
         caption: 'Every memory we\'ve made is a treasure I hold close to my heart.'
     },
     {
-        image: 'img/img23.jpeg',
+        image: 'img/img23.jpg',
         caption: 'You understand me in ways I can\'t even explain to myself.'
     },
     {
-        image: 'img/img24.jpeg',
+        image: 'img/img24.jpg',
         caption: 'Our silly moments together are just as precious as our serious ones.'
     },
     {
-        image: 'img/img25.jpeg',
+        image: 'img/img25.jpg',
         caption: 'You are the reason I believe in forever.'
     },
     {
-        image: 'img/img26.jpeg',
+        image: 'img/img26.jpg',
         caption: 'This first year has been everything I hoped for and so much more.'
     },
     {
-        image: 'img/img27.jpeg',
+        image: 'img/img27.jpg',
         caption: 'You make me feel loved in ways I never thought possible.'
     },
     {
-        image: 'img/img28.jpeg',
+        image: 'img/img28.jpg',
         caption: 'Through every high and low, you\'ve been my constant.'
     },
     {
-        image: 'img/img29.jpeg',
+        image: 'img/img29.jpg',
         caption: 'Your love is the greatest gift I\'ve ever received.'
     },
     {
-        image: 'img/img30.jpeg',
+        image: 'img/img30.jpg',
         caption: 'One year down, forever to go... and I can\'t wait for every moment.'
     },
     {
-        image: 'img/img31.jpeg',
+        image: 'img/img31.jpg',
         caption: 'Thank you for choosing me, for loving me, for being you.'
     },
     {
-        image: 'img/img32.jpeg',
+        image: 'img/img32.jpg',
         caption: 'This is just the beginning of our beautiful story.'
     },
     {
-        image: 'img/img33.jpeg',
+        image: 'img/img33.jpg',
         caption: 'Happy 1st Anniversary, my love. Here\'s to us, always and forever. ♡'
     }
 ];
