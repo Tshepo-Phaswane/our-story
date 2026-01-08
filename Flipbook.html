@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story - Flipbook</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="flipbook-container" id="flipbook-container">
+        <div class="left-side">
+            <div class="vinyl-player">
+                <div class="spinner" id="vinyl-spinner">
+                    <img src="img/UsVinyl.png" alt="Our Vinyl">
+                </div>
+                <div class="needle">
+                    <img src="img/VinylNeedle.png" alt="Needle">
+                </div>
+            </div>
+
+            <!-- Music Playbar -->
+            <div class="music-playbar">
+                <div class="progress-time-container">
+                    <span class="time-current" id="time-current">0:00</span>
+                    <div class="progress-bar-wrapper">
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" id="progress-fill"></div>
+                            <div class="progress-handle" id="progress-handle"></div>
+                        </div>
+                    </div>
+                    <span class="time-total" id="time-total">0:00</span>
+                </div>
+
+                <div class="playbar-controls">
+                    <button class="control-btn shuffle-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 3 21 3 21 8"></polyline>
+                            <line x1="4" y1="20" x2="21" y2="3"></line>
+                            <polyline points="21 16 21 21 16 21"></polyline>
+                            <line x1="15" y1="15" x2="21" y2="21"></line>
+                            <line x1="4" y1="4" x2="9" y2="9"></line>
+                        </svg>
+                    </button>
+
+                    <button class="control-btn prev-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/>
+                        </svg>
+                    </button>
+
+                    <button class="control-btn play-pause-btn" id="play-pause-btn">
+                        <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z"/>
+                        </svg>
+                        <svg id="pause-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <rect x="6" y="4" width="4" height="16"/>
+                            <rect x="14" y="4" width="4" height="16"/>
+                        </svg>
+                    </button>
+
+                    <button class="control-btn next-btn-player">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/>
+                        </svg>
+                    </button>
+
+                    <button class="control-btn repeat-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="17 1 21 5 17 9"></polyline>
+                            <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+                            <polyline points="7 23 3 19 7 15"></polyline>
+                            <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="memory-card">
+                <div class="card-header">
+
+                </div>
+
+                <div class="photo-frame">
+                    <img id="carousel-image" src="img/img1.jpeg" alt="Our Memory">
+                </div>
+
+                <div class="caption-container">
+                    <p id="typing-text" class="caption-text"></p>
+                </div>
+
+                <button class="next-btn" id="next-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Section -->
+    <div class="final-section" id="final-section">
+        <div class="final-message">
+            <h1>I Love You and Always Will</h1>
+            <h2>Us Forever <span class="heart-icon">♥</span></h2>
+        </div>
+    </div>
+
+    <audio id="background-music">
+        <source src="music/song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="js/flipbook.js"></script>
+</body>
+</html>
