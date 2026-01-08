@@ -241,10 +241,11 @@ function changeMemory() {
 
     currentIndex = (currentIndex + 1) % memories.length;
 
-    // Fade out current image
+    // Fade out current image and text
     imageElement.style.opacity = '0';
+    textElement.style.opacity = '0';
 
-    // Wait 1.2 seconds for fade out and image loading
+    // Wait 0.8 seconds for fade out and image loading (reduced from 1.2s)
     setTimeout(() => {
         // Change image source
         if (preloadedImages[memories[currentIndex].image]) {
@@ -258,9 +259,10 @@ function changeMemory() {
         
         // Start typing caption after image starts fading in
         setTimeout(() => {
+            textElement.style.opacity = '1';
             typeText(memories[currentIndex].caption);
-        }, 300);
-    }, 1200);
+        }, 200);
+    }, 800);
 }
 
 function showFinalMessage() {
@@ -394,9 +396,10 @@ window.addEventListener('load', async () => {
             imageElement.src = memories[0].image;
         }
         
-        // Force image to be visible
+        // Force image and text to be visible
         imageElement.style.opacity = '1';
         imageElement.style.display = 'block';
+        textElement.style.opacity = '1';
         
         // Start typing first caption after a short delay to ensure image is rendered
         setTimeout(() => {
